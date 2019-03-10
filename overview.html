@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <title>KV-Diagramme</title>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+    <a href="#">KV-Diagramme</a>
+    <a data-current href="overview.html">Allgemeines</a>
+    <a href="process.html">Ablauf</a>
+    <a href="rules.html">Regeln</a>
+    <a href="usecase.html">Verwendungshinweise</a>
+    <a href="generator.html">Generator</a>
+</nav>
+
+<div class="content">
+    <p class="heading">Allgemeines zum KV-Diagramm</p>
+    <p>
+        Das KV-Diagramm (KV steht hierbei für Karnaugh-Veitch) wurde 1952 von <u>Edward W.
+        Veitch</u> entwickelt und 1953 von <u>Maurice Karnaugh</u> optimiert.
+    </p>
+    <p>
+        Ein KV-Diagramm dient hauptsächlich der Vereinfachung, aber auch der übersichtlichen
+        Veranschaulichung von booleschen Funktionen. Eine disjunktive Normalform lässt sich somit
+        <u>meist</u> zu einem komplett minimalen logischen Ausdruck umformen. Falls der Ausdruck
+        noch nicht minimal ist, kann eine weitere Vereinfachung durch Anwenden der booleschen
+        Rechenregeln vollbracht werden.
+    </p>
+    <p>
+        Bei <i>n</i> Eingangsvariablen hat ein KV-Diagramm 2<sup>n</sup> Felder, weshalb dieses
+        Verfahren nur bei Schaltfunktionen mit bis zu 4 Eingängen sinnvoll ist. Es ist außerdem
+        an den Rändern mit den Variablen beschriftet, wobei jede Variable in negierter- und
+        nicht-negierter Form vorkommt.
+    </p>
+    <p>
+        Ein möglicher Aufbau könnte zum Beispiel so aussehen:
+    </p>
+
+    <figure>
+        <img alt="KV-Diagramm mit mehreren Eingängen" src="assets/img/kv_multiple.png">
+        <figcaption><i>KV-Diagramm mit mehreren Eingängen</i></figcaption>
+    </figure>
+
+    <a href="process.html">> Weiter zum Ablauf der Minimierung</a>
+</div>
+
+<footer>
+    <hr>
+    Erstellt von <a href="https://marvinborner.de" target="_blank">Marvin Borner</a> TGI 11.1 RBS
+    Ulm
+</footer>
+</body>
+</html>
