@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <title>KV-Diagramme</title>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+    <a href="#">KV-Diagramme</a>
+    <a href="overview.html">Allgemeines</a>
+    <a href="process.html">Ablauf</a>
+    <a data-current href="rules.html">Regeln</a>
+    <a href="usecase.html">Verwendungshinweise</a>
+    <a href="generator.html">Generator</a>
+</nav>
+
+<div class="content">
+    <p class="heading">Regeln zum Zusammenfassen von Feldern</p>
+    <ul>
+        <li>Benachbarte "1"-Felder zu Blöcken zusammenfassen</li>
+        <li>Benachbart sind auch Felder an gegenüberliegenden Enden einer Zeile/Spalte</li>
+        <li>Nur 2er Potenzen (2, 4, 8, ...) dürfen zu Blöcken zusammengefasst werden</li>
+        <li>Eine "1" kann mehreren Blöcken angehören</li>
+        <li><u>Jede</u> "1" muss erfasst werden</li>
+        <li>Ein <i>Don't Care</i> wird mit einem X dargestellt</li>
+        <li>Es kann beim Ausfüllen eine Hilfe sein, wenn man die Reihenfolge in Abhängigkeit
+            der Reihenfolge der Ausgangswerte der Wahrheitstabelle kennt:
+            <br><br>
+            <div class="kv-grid">
+                <div class="grid-child"></div>
+                <div class="grid-child">E<sub>1</sub></div>
+                <div class="grid-child">E<sub>1</sub></div>
+                <div class="grid-child">!E<sub>1</sub></div>
+                <div class="grid-child">!E<sub>1</sub></div>
+                <div class="grid-child"></div>
+                <div class="grid-child">E<sub>2</sub></div>
+                <div class="grid-child" id="4">4</div>
+                <div class="grid-child" id="8">8</div>
+                <div class="grid-child" id="7">7</div>
+                <div class="grid-child" id="3">3</div>
+                <div class="grid-child">!E<sub>4</sub></div>
+                <div class="grid-child">E<sub>2</sub></div>
+                <div class="grid-child" id="12">12</div>
+                <div class="grid-child" id="16">16</div>
+                <div class="grid-child" id="15">15</div>
+                <div class="grid-child" id="11">11</div>
+                <div class="grid-child">E<sub>4</sub></div>
+                <div class="grid-child">!E<sub>2</sub></div>
+                <div class="grid-child" id="10">10</div>
+                <div class="grid-child" id="14">14</div>
+                <div class="grid-child" id="13">13</div>
+                <div class="grid-child" id="9">9</div>
+                <div class="grid-child">E<sub>4</sub></div>
+                <div class="grid-child">!E<sub>2</sub></div>
+                <div class="grid-child" id="2">2</div>
+                <div class="grid-child" id="6">6</div>
+                <div class="grid-child" id="5">5</div>
+                <div class="grid-child" id="1">1</div>
+                <div class="grid-child">!E<sub>4</sub></div>
+                <div class="grid-child"></div>
+                <div class="grid-child">!E<sub>3</sub></div>
+                <div class="grid-child">E<sub>3</sub></div>
+                <div class="grid-child">E<sub>3</sub></div>
+                <div class="grid-child">!E<sub>3</sub></div>
+                <div class="grid-child"></div>
+            </div>
+            <p>KV-Diagramme mit weniger Eingängen haben hierbei den gleichen Aufbau.</p>
+        </li>
+    </ul>
+
+    <a href="process.html">> Genaueres zum Ablauf</a>
+
+</div>
+
+<footer>
+    <hr>
+    Erstellt von <a href="https://marvinborner.de" target="_blank">Marvin Borner</a> TGI 11.1 RBS
+    Ulm
+</footer>
+</body>
+</html>
