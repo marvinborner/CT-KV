@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <title>KV-Diagramme</title>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+    <a href="#">KV-Diagramme</a>
+    <a href="overview.html">Allgemeines</a>
+    <a data-current href="process.html">Ablauf</a>
+    <a href="rules.html">Regeln</a>
+    <a href="usecase.html">Verwendungshinweise</a>
+    <a href="generator.html">Generator</a>
+</nav>
+
+<div class="content">
+    <p class="heading">Ablauf</p>
+    <p>
+        Das Minimieren eines booleschen Ausdrucks beginnt mit einer ausgefüllten Wahrheitstabelle,
+        mit deren Ausgangswerten daraufhin eine KV-Tafel erstellt wird und wie im folgenden
+        Beispiel erklärt, die disjunktive Normalform ausgelesen wird.
+    </p>
+
+    <p><u>Beispielsablauf</u>:</p>
+    <ol>
+        <li>
+            <p>Wahrheitstabelle:</p>
+            <table>
+                <thead>
+                <tr>
+                    <th>E<sub>4</sub></th>
+                    <th>E<sub>3</sub></th>
+                    <th>E<sub>2</sub></th>
+                    <th>E<sub>1</sub></th>
+                    <th>Z</th>
+                    <th>DNF</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="false">0</td>
+                    <td class="false">0</td>
+                    <td class="false">0</td>
+                    <td class="false">0</td>
+                    <td class="output false">0</td>
+                </tr>
+                <tr>
+                    <td class="false">0</td>
+                    <td class="false">0</td>
+                    <td class="false">0</td>
+                    <td class="true">1</td>
+                    <td class="output false">0</td>
+                </tr>
+                <tr>
+                    <td class="false">0</td>
+                    <td class="false">0</td>
+                    <td class="true">1</td>
+                    <td class="false">0</td>
+                    <td class="output true">1</td>
+                    <td>(<span class="not">E<sub>1</sub></span>&and;E<sub>2</sub>&and;<span
+                            class="not">E<sub>3</sub></span>&and;<span
+                            class="not">E<sub>4</sub></span>)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="false">0</td>
+                    <td class="false">0</td>
+                    <td class="true">1</td>
+                    <td class="true">1</td>
+                    <td class="output true">1</td>
+                    <td>(E<sub>1</sub>&and;E<sub>2</sub>&and;<span class="not">E<sub>3</sub></span>&and;<span
+                            class="not">E<sub>4</sub></span>)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="false">0</td>
+                    <td class="true">1</td>
+                    <td class="false">0</td>
+                    <td class="false">0</td>
+                    <td class="output false">0</td>
+                </tr>
+                <tr>
+                    <td class="false">0</td>
+                    <td class="true">1</td>
+                    <td class="false">0</td>
+                    <td class="true">1</td>
+                    <td class="output true">1</td>
+                    <td>(E<sub>1</sub>&and;<span class="not">E<sub>2</sub></span>&and;E<sub>3</sub>&and;<span
+                            class="not">E<sub>4</sub></span>)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="false">0</td>
+                    <td class="true">1</td>
+                    <td class="true">1</td>
+                    <td class="false">0</td>
+                    <td class="output false">0</td>
+                </tr>
+                <tr>
+                    <td class="false">0</td>
+                    <td class="true">1</td>
+                    <td class="true">1</td>
+                    <td class="true">1</td>
+                    <td class="output false">0</td>
+                </tr>
+                <tr>
+                    <td class="true">1</td>
+                    <td class="false">0</td>
+                    <td class="false">0</td>
+                    <td class="false">0</td>
+                    <td class="output false">0</td>
+                </tr>
+                <tr>
+                    <td class="true">1</td>
+                    <td class="false">0</td>
+                    <td class="false">0</td>
+                    <td class="true">1</td>
+                    <td class="output false">0</td>
+                </tr>
+                <tr>
+                    <td class="true">1</td>
+                    <td class="false">0</td>
+                    <td class="true">1</td>
+                    <td class="false">0</td>
+                    <td class="output true">1</td>
+                    <td>(<span class="not">E<sub>1</sub></span>&and;E<sub>2</sub>&and;<span
+                            class="not">E<sub>3</sub></span>&and;E<sub>4</sub>)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="true">1</td>
+                    <td class="false">0</td>
+                    <td class="true">1</td>
+                    <td class="true">1</td>
+                    <td class="output true">1</td>
+                    <td>(E<sub>1</sub>&and;E<sub>2</sub>&and;<span class="not">E<sub>3</sub></span>&and;E<sub>4</sub>)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="true">1</td>
+                    <td class="true">1</td>
+                    <td class="false">0</td>
+                    <td class="false">0</td>
+                    <td class="output false">0</td>
+                </tr>
+                <tr>
+                    <td class="true">1</td>
+                    <td class="true">1</td>
+                    <td class="false">0</td>
+                    <td class="true">1</td>
+                    <td class="output false">0</td>
+                </tr>
+                <tr>
+                    <td class="true">1</td>
+                    <td class="true">1</td>
+                    <td class="true">1</td>
+                    <td class="false">0</td>
+                    <td class="output true">1</td>
+                    <td>(<span class="not">E<sub>1</sub></span>&and;E<sub>2</sub>&and;E<sub>3</sub>&and;E<sub>4</sub>)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="true">1</td>
+                    <td class="true">1</td>
+                    <td class="true">1</td>
+                    <td class="true">1</td>
+                    <td class="output false">0</td>
+                </tr>
+                </tbody>
+            </table>
+        </li>
+
+        <li>
+            <p>Disjunktive Normalform ablesen (zum vergleichen):</p>
+            <p>
+                Z =
+                (<span class="not">E<sub>1</sub></span>&and;E<sub>2</sub>&and;<span
+                    class="not">E<sub>3</sub></span>&and;<span class="not">E<sub>4</sub></span>)&or;
+                (E<sub>1</sub>&and;E<sub>2</sub>&and;<span
+                    class="not">E<sub>3</sub></span>&and;<span class="not">E<sub>4</sub></span>)&or;
+                (E<sub>1</sub>&and;<span
+                    class="not">E<sub>2</sub></span>&and;E<sub>3</sub>&and;<span
+                    class="not">E<sub>4</sub></span>)&or;
+                (<span class="not">E<sub>1</sub></span>&and;E<sub>2</sub>&and;<span
+                    class="not">E<sub>3</sub></span>&and;E<sub>4</sub>)&or;
+                (E<sub>1</sub>&and;E<sub>2</sub>&and;<span
+                    class="not">E<sub>3</sub></span>&and;E<sub>4</sub>)&or;
+                (<span
+                    class="not">E<sub>1</sub></span>&and;E<sub>2</sub>&and;E<sub>3</sub>&and;E<sub>4</sub>)
+            </p>
+        </li>
+
+        <li>
+            <p>KV-Diagramm zeichnen und mit den <i>Z Werten</i> aus der Wahrheitstabelle
+                füllen:</p>
+            <button id="fill">Ausfüllen</button>
+            <div class="kv-grid">
+                <div class="grid-child"></div>
+                <div class="grid-child">E<sub>1</sub></div>
+                <div class="grid-child">E<sub>1</sub></div>
+                <div class="grid-child">!E<sub>1</sub></div>
+                <div class="grid-child">!E<sub>1</sub></div>
+                <div class="grid-child"></div>
+                <div class="grid-child">E<sub>2</sub></div>
+                <div class="grid-child" id="4"></div>
+                <div class="grid-child" id="8"></div>
+                <div class="grid-child" id="7"></div>
+                <div class="grid-child" id="3"></div>
+                <div class="grid-child">!E<sub>4</sub></div>
+                <div class="grid-child">E<sub>2</sub></div>
+                <div class="grid-child" id="12"></div>
+                <div class="grid-child" id="16"></div>
+                <div class="grid-child" id="15"></div>
+                <div class="grid-child" id="11"></div>
+                <div class="grid-child">E<sub>4</sub></div>
+                <div class="grid-child">!E<sub>2</sub></div>
+                <div class="grid-child" id="10"></div>
+                <div class="grid-child" id="14"></div>
+                <div class="grid-child" id="13"></div>
+                <div class="grid-child" id="9"></div>
+                <div class="grid-child">E<sub>4</sub></div>
+                <div class="grid-child">!E<sub>2</sub></div>
+                <div class="grid-child" id="2"></div>
+                <div class="grid-child" id="6"></div>
+                <div class="grid-child" id="5"></div>
+                <div class="grid-child" id="1"></div>
+                <div class="grid-child">!E<sub>4</sub></div>
+                <div class="grid-child"></div>
+                <div class="grid-child">!E<sub>3</sub></div>
+                <div class="grid-child">E<sub>3</sub></div>
+                <div class="grid-child">E<sub>3</sub></div>
+                <div class="grid-child">!E<sub>3</sub></div>
+                <div class="grid-child"></div>
+            </div>
+        </li>
+
+        <li>
+            <p>Felder mit Beachtung der <a href="rules.html">Regeln</a> zusammenfassen:</p>
+            <ol id="steps"></ol>
+            <button id="combine" style="display: none;">Starten</button>
+        </li>
+
+        <li>
+            <p>Disjunktive Normalform erstellen:</p>
+            <p>
+                Z = (E<sub>2</sub>&and;<span class="not">E<sub>3</sub></span>)&or;
+                (<span class="not">E<sub>1</sub></span>&and;E<sub>2</sub>&and;E<sub>4</sub>)&or;
+                (E<sub>1</sub>&and;<span class="not">E<sub>2</sub></span>&and;E<sub>3</sub>
+                <span class="not">E<sub>4</sub></span>)
+            </p>
+        </li>
+    </ol>
+
+    <button id="up">Nach oben</button>
+    <a href="usecase.html">> Hinweise</a>
+</div>
+
+<footer>
+    <hr>
+    Erstellt von <a href="https://marvinborner.de" target="_blank">Marvin Borner</a> TGI 11.1 RBS
+    Ulm
+</footer>
+
+<script src="assets/js/process.js"></script>
+</body>
+</html>
