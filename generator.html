@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <title>KV-Diagramme</title>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+    <a href="#">KV-Diagramme</a>
+    <a href="overview.html">Allgemeines</a>
+    <a href="process.html">Ablauf</a>
+    <a href="rules.html">Regeln</a>
+    <a href="usecase.html">Verwendungshinweise</a>
+    <a data-current href="generator.html">Generator</a>
+</nav>
+
+<div class="content">
+    <p class="heading">KV-Diagramm Generator</p>
+    <p>UND == &&</p>
+    <p>ODER == ||</p>
+    <p>NICHT == !</p>
+    <p>Es dürfen <u>NUR</u> die Variablen a, b, c und d verwendet werden.</p>
+    <label for="input">Boolescher Funktionsterm:</label>
+    <input id="input" type="text">
+    <button id="minify">Generieren!</button>
+
+    <pre id="log"></pre>
+
+    <div class="kv-grid">
+        <div class="grid-child"></div>
+        <div class="grid-child">a</div>
+        <div class="grid-child">a</div>
+        <div class="grid-child">!a</div>
+        <div class="grid-child">!a</div>
+        <div class="grid-child"></div>
+        <div class="grid-child">b</div>
+        <div class="grid-child" data-id="1" id="4"></div>
+        <div class="grid-child" data-id="2" id="8"></div>
+        <div class="grid-child" data-id="3" id="7"></div>
+        <div class="grid-child" data-id="4" id="3"></div>
+        <div class="grid-child">!d</div>
+        <div class="grid-child">b</div>
+        <div class="grid-child" data-id="5" id="12"></div>
+        <div class="grid-child" data-id="6" id="16"></div>
+        <div class="grid-child" data-id="7" id="15"></div>
+        <div class="grid-child" data-id="8" id="11"></div>
+        <div class="grid-child">d</div>
+        <div class="grid-child">!b</div>
+        <div class="grid-child" data-id="9" id="10"></div>
+        <div class="grid-child" data-id="10" id="14"></div>
+        <div class="grid-child" data-id="11" id="13"></div>
+        <div class="grid-child" data-id="12" id="9"></div>
+        <div class="grid-child">d</div>
+        <div class="grid-child">!b</div>
+        <div class="grid-child" data-id="13" id="2"></div>
+        <div class="grid-child" data-id="14" id="6"></div>
+        <div class="grid-child" data-id="15" id="5"></div>
+        <div class="grid-child" data-id="16" id="1"></div>
+        <div class="grid-child">!d</div>
+        <div class="grid-child"></div>
+        <div class="grid-child">!c</div>
+        <div class="grid-child">c</div>
+        <div class="grid-child">c</div>
+        <div class="grid-child">!c</div>
+        <div class="grid-child"></div>
+    </div>
+</div>
+
+<footer>
+    <hr>
+    Erstellt von <a href="https://marvinborner.de" target="_blank">Marvin Borner</a> TGI 11.1 RBS
+    Ulm
+</footer>
+
+<script src="assets/js/generator.js"></script>
+</body>
+</html>
