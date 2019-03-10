@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <title>KV-Diagramme</title>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+    <a href="#">KV-Diagramme</a>
+    <a href="overview.html">Allgemeines</a>
+    <a href="process.html">Ablauf</a>
+    <a href="rules.html">Regeln</a>
+    <a data-current href="usecase.html">Verwendungshinweise</a>
+    <a href="generator.html">Generator</a>
+</nav>
+
+<div class="content">
+    <p class="heading">Vorteile und Nachteile der Verwendung des KV-Verfahrens</p>
+    <p>Vorteile:</p>
+    <ul>
+        <li>
+            <p>
+                Wie man in den vorherigen <a href="process.html">Beispielen</a> gesehen hat, kann
+                eine Minimierung mit der KV-Methode große Auswirkungen auf die Länge des Terms und
+                auf die Menge der verbauten Bauteile der Schaltung haben.
+            </p>
+            <p><u>Zum Beispiel:</u></p>
+            Vor der Minimierung: Z =
+            (<span class="not">E<sub>1</sub></span>&and;E<sub>2</sub>&and;<span
+                class="not">E<sub>3</sub></span>&and;<span class="not">E<sub>4</sub></span>)&or;
+            (E<sub>1</sub>&and;E<sub>2</sub>&and;<span
+                class="not">E<sub>3</sub></span>&and;<span class="not">E<sub>4</sub></span>)&or;
+            (E<sub>1</sub>&and;<span
+                class="not">E<sub>2</sub></span>&and;E<sub>3</sub>&and;<span
+                class="not">E<sub>4</sub></span>)&or;
+            (<span class="not">E<sub>1</sub></span>&and;E<sub>2</sub>&and;<span
+                class="not">E<sub>3</sub></span>&and;E<sub>4</sub>)&or;
+            (E<sub>1</sub>&and;E<sub>2</sub>&and;<span
+                class="not">E<sub>3</sub></span>&and;E<sub>4</sub>)&or;
+            (<span
+                class="not">E<sub>1</sub></span>&and;E<sub>2</sub>&and;E<sub>3</sub>&and;E<sub>4</sub>)<br>
+
+            Nach der Minimierung: Z = (E<sub>2</sub>&and;<span class="not">E<sub>3</sub></span>)&or;
+            (<span class="not">E<sub>1</sub></span>&and;E<sub>2</sub>&and;E<sub>4</sub>)&or;
+            (E<sub>1</sub>&and;<span class="not">E<sub>2</sub></span>&and;E<sub>3</sub>
+            <span class="not">E<sub>4</sub></span>)<br>
+
+            <p>
+                Wie man sieht, können hier viele Bauteile und in großen Mengen auch viel Geld
+                gespart werden.
+            </p>
+        </li>
+
+        <li>
+            Im Verhältnis zu anderen Methoden (z.B. dem Anwenden von booleschen Rechenregeln), ist
+            das KV-Verfahren mit ihren KV-Diagrammen sehr simpel und verständlich aufgebaut und
+            bietet somit ein schnelles Verfahren zur Minimierung von booleschen Funktionstermen an.
+        </li>
+    </ul>
+
+    <p>Nachteile:</p>
+    <ul>
+        <li>
+            Damit das Verfahren seinen Sinn behält, sollten nicht mehr als 4 Eingänge minimiert
+            werden, da andere Verfahren dafür besser geeignet sind und das KV-Verfahren unnötig
+            kompliziert und unverständlich wird.
+        </li>
+
+        <li>
+            Es kann vorkommen, dass der Term nach einer erfolgreichen Minimierung noch immer nicht
+            komplett minimal ist - in so einem Fall muss man zu den booleschen Rechenregeln
+            zurückgreifen.
+        </li>
+    </ul>
+
+    <a href="process.html">> Genaueres zum Ablauf</a>
+</div>
+
+<footer>
+    <hr>
+    Erstellt von <a href="https://marvinborner.de" target="_blank">Marvin Borner</a> TGI 11.1 RBS
+    Ulm
+</footer>
+</body>
+</html>
