@@ -32,6 +32,7 @@ pre {
     Navigation bar
  */
 .navbar {
+    position: fixed;
     width: 100vw;
     background: var(--grey);
     overflow: hidden;
@@ -66,6 +67,7 @@ pre {
     Content
  */
 .content {
+    margin-top: 30px;
     padding: 20px;
 }
 

@@ -20,18 +20,12 @@
 
 <div class="content">
     <p class="heading">KV-Diagramm Generator</p>
-    <p>UND == &</p>
-    <p>ODER == #</p>
-    <p>NICHT == !</p>
     <p>
         Es dürfen <u>NUR</u> die Variablen a, b, c und d und die Abel Schreibweise verwendet werden.
     </p>
     <p>
         Wahre Werte werden zur Veranschaulichung grün hinterlegt und in Abhängigkeit der
         umliegenden Werte (Matrix Neighbours) heller bzw. dunkler.
-    </p>
-    <p>
-        Mehr Informationen zur Kalkulation sind in <b>F12->Konsole</b> aufrufbar.
     </p>
     <label for="input"><b>Boolescher Funktionsterm:</b></label>
     <input id="input" placeholder="z.B. (a & b) # (c & d)" type="text">
@@ -76,12 +70,26 @@
         <div class="grid-child">!c</div>
         <div class="grid-child"></div>
     </div>
+
+    <p><b>Hinweise:</b></p>
+    <ul>
+        <li>
+            Die farbliche Gradierung soll vor allem dem Ablesen und dem Zusammenfassen der Felder
+            helfen, da das Skript hier quasi versucht, Felder zu finden (auch wenn das nicht perfekt
+            gelingt).
+        </li>
+        <li>
+            Mehr Informationen zur Kalkulation sind in <b>F12->Konsole</b> aufrufbar.
+        </li>
+    </ul>
 </div>
 
 <footer>
     <hr>
     Erstellt von <a href="https://marvinborner.de" target="_blank">Marvin Borner</a> TGI 11.1 RBS
     Ulm
+    <br>
+    Bei Fragen bitte <a href="mailto:contact@marvinborner.de">hier</a> melden.
 </footer>
 
 <script src="assets/js/generator.js"></script>
