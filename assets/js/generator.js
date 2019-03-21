@@ -2,7 +2,7 @@
 document.getElementById('minify').onclick = () => {
   // declare variables
   let a, b, c, d;
-  let matrix = [[], [], [], []];
+  const matrix = [[], [], [], []];
 
   // replace input so it matches js boolean operators
   const input = document.getElementById('input').value.replace(/#/g, '||').replace(/&/g, '&&');
@@ -27,10 +27,43 @@ document.getElementById('minify').onclick = () => {
 
     // merge grid with matrix (2D array)
     document.querySelectorAll('[data-id]').forEach(element => {
+      element.style.background = 'white';
       let rowNumber = (element.getAttribute('data-id') / 4 - 0.1).toString();
       rowNumber = rowNumber.substring(0, rowNumber.indexOf('.'));
       matrix[rowNumber].push(parseInt(element.innerText, 2));
     });
+
+    // algorithm for finding truthy matrix neighbours
+    // inspired by https://stackoverflow.com/a/652123
+    const matrixMarks = [];
+    matrix.forEach((columns, i) => {
+      columns.forEach((items, j) => {
+        const rowLimit = matrix.length - 1;
+        const columnLimit = matrix[0].length - 1;
+        for (let x = Math.max(0, i - 1); x <= Math.min(i + 1, rowLimit); x++) {
+          for (let y = Math.max(0, j - 1); y <= Math.min(j + 1, columnLimit); y++) {
+            if ((x !== i || y !== j) && matrix[x][y] !== 0 && matrix[i][j] !== 0) {
+              console.log(`Truthy neighbour of ${i}|${j} is ${x}|${y}`);
+              matrixMarks[`${x}|${y}`] = matrixMarks[`${x}|${y}`] ? matrixMarks[`${x}|${y}`] + 1 : 1;
+            }
+          }
+        }
+      })
+    });
+
+    // mark the truthy grid numbers according to the calculated percentage
+    for (let coordinates in matrixMarks) {
+      const x = parseInt(coordinates.substring(0, coordinates.indexOf("|")), 10);
+      const y = parseInt(coordinates.split('|').pop(), 10);
+      console.log('------');
+      console.log(`Coordinates: x: ${x} y: ${y}`);
+      console.log(`Opacity of element: ${matrixMarks[coordinates]}`);
+      console.log(`Element id: ${x * 4 + y + 1}`);
+      console.log(`KV-based id: ${document.querySelector(`[data-id="${x * 4 + y + 1}"]`).getAttribute('id')}`);
+      document.querySelector(`[data-id="${x * 4 + y + 1}"]`).style.background = `rgba(0, 100, 0, 0.${matrixMarks[coordinates]})`;
+    }
+
+    console.log(matrixMarks);
     console.log(matrix);
   } catch (err) {
     console.error(err);
