@@ -121,7 +121,8 @@ footer {
     color: red;
 }
 
-table * {
+table {
+    border-collapse: collapse;
     text-align: center;
 }
 
