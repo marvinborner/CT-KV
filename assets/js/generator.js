@@ -1,11 +1,18 @@
+// declare button event
 document.getElementById('minify').onclick = () => {
+  // declare variables
   let a, b, c, d;
+  let matrix = [[], [], [], []];
+
+  // replace input so it matches js boolean operators
   const input = document.getElementById('input').value.replace(/#/g, '||').replace(/&/g, '&&');
 
+  // some logging..
   document.getElementById('log').innerText = '';
   document.getElementById('log').append('LOG\ndcba Z ID\n');
 
   try {
+    // fill kv diagram
     for (let i = 0; i < 16; i++) {
       const currentBinary = (i >>> 0).toString(2);
       // fill binary number with leading zeros until it is 4 digits long
@@ -17,6 +24,14 @@ document.getElementById('minify').onclick = () => {
       document.getElementById('log').append(`${filledBinary} ${eval(input) ? '1' : '0'} ${document.getElementById(i + 1).getAttribute('data-id')}\n`);
       document.getElementById(i + 1).innerText = eval(input) ? '1' : '0';
     }
+
+    // merge grid with matrix (2D array)
+    document.querySelectorAll('[data-id]').forEach(element => {
+      let rowNumber = (element.getAttribute('data-id') / 4 - 0.1).toString();
+      rowNumber = rowNumber.substring(0, rowNumber.indexOf('.'));
+      matrix[rowNumber].push(parseInt(element.innerText, 2));
+    });
+    console.log(matrix);
   } catch (err) {
     console.error(err);
     alert('Oh, da ist wohl was schiefgelaufen, bitte probieren Sie es noch einmal :)');
