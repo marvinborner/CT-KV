@@ -1,6 +1,6 @@
 document.getElementById('minify').onclick = () => {
   let a, b, c, d;
-  const input = document.getElementById('input').value;
+  const input = document.getElementById('input').value.replace(/#/g, '||').replace(/&/g, '&&');
 
   document.getElementById('log').innerText = '';
   document.getElementById('log').append('LOG\ndcba Z ID\n');
