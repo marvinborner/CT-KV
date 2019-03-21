@@ -1,5 +1,5 @@
 // declare button event
-document.getElementById('minify').onclick = () => {
+document.getElementById('input').onkeyup = () => {
   // declare variables
   let a, b, c, d;
   const matrix = [[], [], [], []];
@@ -9,7 +9,10 @@ document.getElementById('minify').onclick = () => {
 
   // some logging..
   document.getElementById('log').innerText = '';
-  document.getElementById('log').append('LOG\ndcba Z ID\n');
+  document.getElementById('log').append('Wahrheitstabelle\n');
+  document.getElementById('log').append('----------------\n');
+  document.getElementById('log').append('d c b a | Z | ID\n');
+  document.getElementById('log').append('----------------\n');
 
   try {
     // fill kv diagram
@@ -21,7 +24,7 @@ document.getElementById('minify').onclick = () => {
       b = filledBinary[2] === '1';
       c = filledBinary[1] === '1';
       d = filledBinary[0] === '1';
-      document.getElementById('log').append(`${filledBinary} ${eval(input) ? '1' : '0'} ${document.getElementById(i + 1).getAttribute('data-id')}\n`);
+      document.getElementById('log').append(`${filledBinary.split('').join(' ')} | ${eval(input) ? '1' : '0'} | ${document.getElementById(i + 1).getAttribute('data-id')}\n`);
       document.getElementById(i + 1).innerText = eval(input) ? '1' : '0';
     }
 
@@ -55,18 +58,20 @@ document.getElementById('minify').onclick = () => {
     for (let coordinates in matrixMarks) {
       const x = parseInt(coordinates.substring(0, coordinates.indexOf("|")), 10);
       const y = parseInt(coordinates.split('|').pop(), 10);
+      // to ensure that max opacity is used
+      const opacity = (matrixMarks[coordinates] / 10 + (1 - Math.max.apply(null, Object.values(matrixMarks)) / 10));
       console.log('------');
       console.log(`Coordinates: x: ${x} y: ${y}`);
-      console.log(`Opacity of element: ${matrixMarks[coordinates]}`);
+      console.log(`Opacity of element: ${opacity}`);
       console.log(`Element id: ${x * 4 + y + 1}`);
       console.log(`KV-based id: ${document.querySelector(`[data-id="${x * 4 + y + 1}"]`).getAttribute('id')}`);
-      document.querySelector(`[data-id="${x * 4 + y + 1}"]`).style.background = `rgba(0, 100, 0, 0.${matrixMarks[coordinates]})`;
+      document.querySelector(`[data-id="${x * 4 + y + 1}"]`).style.background = `rgba(0, 100, 0, ${opacity})`;
     }
 
     console.log(matrixMarks);
     console.log(matrix);
   } catch (err) {
     console.error(err);
-    alert('Oh, da ist wohl was schiefgelaufen, bitte probieren Sie es noch einmal :)');
+    //alert('Oh, da ist wohl was schiefgelaufen, bitte probieren Sie es noch einmal :)');
   }
 };

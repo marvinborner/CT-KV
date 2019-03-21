@@ -24,7 +24,8 @@ html, body {
 }
 
 pre {
-    float: right;
+    float: left;
+    margin-right: 30px;
 }
 
 /*
@@ -140,6 +141,7 @@ td.output {
     grid-template-columns: repeat(6, 1fr);
     justify-items: center;
     align-items: center;
+    margin-top: 10px;
     width: calc(50px * 6);
     height: calc(50px * 6);
 }
